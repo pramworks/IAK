@@ -1,28 +1,44 @@
 package com.example.android.iak1_e1;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText hargaPerKmEdit = (EditText) findViewById(R.id.harga_edittext);
-    String hargaPerKm_string = hargaPerKmEdit.getText().toString();
-    int hargaPerKm = Integer.parseInt(hargaPerKm_string);
-    EditText jarakEdit = (EditText) findViewById(R.id.jarak_edittext);
-    String jarak_string = jarakEdit.getText().toString();
-    int jarak = Integer.parseInt(jarak_string);
-    EditText tipsEdit = (EditText) findViewById(R.id.tips_edittext);
-    String tips_string = tipsEdit.getText().toString();
-    int tips = Integer.parseInt(tips_string);
-    int totalHarga = hargaPerKm*jarak+tips;
+
+    // ui
+    EditText hargaPerKmEdit;
+    String hargaPerKm_string;
+    EditText jarakEdit;
+    String jarak_string;
+    EditText tipsEdit;
+    String tips_string;
+
+    // data
+    int hargaPerKm;
+    int jarak;
+    int tips;
+    int totalHarga;
     int hargaDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        hargaPerKmEdit = (EditText) findViewById(R.id.harga_edittext);
+        hargaPerKm_string = hargaPerKmEdit.getText().toString();
+        hargaPerKm = Integer.parseInt(hargaPerKm_string);
+        jarakEdit = (EditText) findViewById(R.id.jarak_edittext);
+        jarak_string = jarakEdit.getText().toString();
+        jarak = Integer.parseInt(jarak_string);
+        tipsEdit = (EditText) findViewById(R.id.tips_edittext);
+        tips_string = tipsEdit.getText().toString();
+        tips = Integer.parseInt(tips_string);
+
+        totalHarga = hargaPerKm * jarak + tips;
     }
 
     public void tunai(View view) {
