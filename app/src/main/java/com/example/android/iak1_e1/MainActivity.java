@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,22 +30,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         hargaPerKmEdit = (EditText) findViewById(R.id.harga_edittext);
-        hargaPerKm_string = hargaPerKmEdit.getText().toString();
-        hargaPerKm = Integer.parseInt(hargaPerKm_string);
         jarakEdit = (EditText) findViewById(R.id.jarak_edittext);
-        jarak_string = jarakEdit.getText().toString();
-        jarak = Integer.parseInt(jarak_string);
         tipsEdit = (EditText) findViewById(R.id.tips_edittext);
+    }
+
+    private void hitung() {
+        hargaPerKm_string = hargaPerKmEdit.getText().toString();
+        jarak_string = jarakEdit.getText().toString();
         tips_string = tipsEdit.getText().toString();
+
+        hargaPerKm = Integer.parseInt(hargaPerKm_string);
+        jarak = Integer.parseInt(jarak_string);
         tips = Integer.parseInt(tips_string);
 
         totalHarga = hargaPerKm * jarak + tips;
     }
 
     public void tunai(View view) {
+        // kalkulasi dan ambil data dari EditText
+        hitung();
+
         TextView metodeTextView = (TextView) findViewById(R.id.metode_textview);
         metodeTextView.setText("TUNAI");
         TextView displayTextView = (TextView) findViewById(R.id.display_textview);
+        Toast.makeText(this, String.valueOf(totalHarga), Toast.LENGTH_SHORT).show();
         hargaDisplay = totalHarga;
         displayTextView.setText("Rp. " + hargaDisplay);
     }
