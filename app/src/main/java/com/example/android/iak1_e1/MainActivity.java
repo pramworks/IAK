@@ -10,13 +10,13 @@ public class MainActivity extends AppCompatActivity {
 
     // ui
     EditText hargaPerKmEdit;
-    String hargaPerKm_string;
     EditText jarakEdit;
-    String jarak_string;
     EditText tipsEdit;
-    String tips_string;
 
     // data
+    String hargaPerKm_string;
+    String jarak_string;
+    String tips_string;
     int hargaPerKm;
     int jarak;
     int tips;
