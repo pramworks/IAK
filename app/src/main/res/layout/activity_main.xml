@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context="com.example.android.iak1_e1.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harga per KM"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/harga_edittext"
+        android:inputType="number"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jarak (KM)"
+        android:layout_below="@id/harga_edittext"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/jarak_edittext"
+        android:inputType="number"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/harga_edittext"
+        android:layout_alignParentRight="true"
+        android:text="0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tips"
+        android:layout_below="@id/jarak_edittext"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/tips_edittext"
+        android:inputType="number"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jarak_edittext"
+        android:layout_alignParentRight="true"
+        android:text="0" />
+
+    <Button
+        android:id="@+id/tunai_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tips_edittext"
+        android:text="TUNAI"
+        android:onClick="tunai"/>
+
+    <Button
+        android:id="@+id/voucher_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:layout_toRightOf="@id/tunai_button"
+        android:layout_below="@id/tips_edittext"
+        android:text="VOUCHER"
+        android:onClick="voucher"/>
+
+    <ImageView
+        android:id="@+id/taxi_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tunai_button"
+        android:src="@drawable/taxi"/>
+
+    <TextView
+        android:id="@+id/metode_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/display_textview"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@id/display_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="Rp. 0,00"
+        android:textSize="16sp"/>
+
+</RelativeLayout>
