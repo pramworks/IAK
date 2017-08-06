@@ -2,6 +2,7 @@ package com.example.android.iak1_e1;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -51,18 +52,28 @@ public class MainActivity extends AppCompatActivity {
         hitung();
 
         TextView metodeTextView = (TextView) findViewById(R.id.metode_textview);
-        metodeTextView.setText("TUNAI");
         TextView displayTextView = (TextView) findViewById(R.id.display_textview);
-        Toast.makeText(this, String.valueOf(totalHarga), Toast.LENGTH_SHORT).show();
+
         hargaDisplay = totalHarga;
+        Toast.makeText(this, String.valueOf(hargaDisplay), Toast.LENGTH_SHORT).show();
+
+        metodeTextView.setText("TUNAI");
         displayTextView.setText("Rp. " + hargaDisplay);
     }
 
     public void voucher(View view) {
+        hitung();
+
         TextView metodeTextView = (TextView) findViewById(R.id.metode_textview);
-        metodeTextView.setText("VOUCHER");
         TextView displayTextView = (TextView) findViewById(R.id.display_textview);
-        hargaDisplay = totalHarga - 5 / 100 * totalHarga;
+
+        double discount = 50 / 100;
+        int currPrice = totalHarga;
+        double hargaDisplay = totalHarga - (discount * currPrice);
+        Log.e("totalHarga", String.valueOf(discount));
+        Toast.makeText(this, String.valueOf(hargaDisplay), Toast.LENGTH_SHORT).show();
+
+        metodeTextView.setText("VOUCHER");
         displayTextView.setText("Rp. " + hargaDisplay);
     }
 }
